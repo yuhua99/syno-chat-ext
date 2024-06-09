@@ -1,0 +1,169 @@
+$primary-color: var(--primary-color);
+$background-color: var(--background-color);
+$text-color: #f9f6ee;
+$border-color: var(--border-color);
+$gunmetal-gray: #818589;
+$bone-white: rgba(249, 246, 238, 0.6);
+$jet-black: #343434;
+$default-background: rgb(232, 241, 243);
+
+.x-border-panel:not(.syno-ux-formpanel, .avatar-ct),
+div.x-panel.chat-content-panel.syno-ux-panel.chat-content-panel.x-panel-noborder:not(.syno-ux-formpanel) {
+    background-color: $border-color !important;
+    background-image: none !important;
+}
+
+div.x-panel.x-panel-noborder.x-border-panel:not(.syno-ux-formpanel) {
+    background-color: $background-color !important;
+}
+
+/***********
+ * Sidebar *
+ ***********/
+
+.channel-list-item.x-view-selected,
+.online-status.online-number-online.online
+{
+    background-color: $primary-color !important;
+}
+
+.online-status.online-number-offline.offline {
+    background-color: rgba($primary-color, 0.3) !important;
+}
+
+div.channel-list-item.x-view-selected>.online-status.online-number-online {
+    background-color: $text-color !important;
+}
+
+// TODO: change color
+div.channel-list-item.x-view-selected>.online-status.online-number-offline {
+    background-color: $gunmetal-gray !important;
+}
+
+.online-status.online-number-online,
+.online-status.online-number-offline {
+    background-image: none !important;
+    border-radius: 50% !important;
+    height: 12px !important;
+    width: 12px !important;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+// TODO: change color
+.channel-list-item.x-view-selected * {
+    color: $jet-black !important;
+}
+
+/************
+ * Chat Msg *
+ ************/
+
+.extra-date-splitter-wrapper,
+.date-splitter-line,
+.date-splitter-text {
+    background-color: $background-color !important;
+}
+
+.welcome-hello,
+.date-splitter-text {
+    color: $text-color !important;
+}
+
+/*********************
+ * Chat Thread Popup *
+ *********************/
+
+.msg-wrap.group-first,
+.msg-additional-wrapper,
+.x-window.chat-thread-dialog .x-window-body.x-window-body-noheader {
+    background-color: $background-color !important;
+}
+
+.x-window.chat-thread-dialog .msg-wrap:not(.thread-header),
+.x-window.chat-thread-dialog .more-comments-btn {
+    border: none !important;
+}
+
+/**************
+ * Chat Panel *
+ **************/
+
+.chat-msgview {
+    background-color: $background-color !important;
+}
+
+.msg-title {
+    color: $text-color !important;
+}
+
+.msg-wrap *:not(
+    .markdown,
+    .markdown>.label,
+    .comment-count,
+    .system-text,
+    .hash-tag,
+    button
+){
+    color: $text-color !important;
+}
+
+.msg-wrap .comment-count {
+    color: var(--primary-color) !important;
+}
+
+span.msg-inputarea-send-btn {
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+}
+
+.msg-additional-hashtag-wrap {
+    background-color: $border-color !important;
+
+    .hash-teg {
+        color: $primary-color !important;
+    }
+}
+
+.msg-wrap .markdown>.label {
+    background-color: $text-color !important;
+}
+
+.msg-wrap .system-text {
+    color: $bone-white !important;
+}
+
+.msg-wrap:hover {
+    background-color: rgba($background-color, 0.9) !important;
+}
+
+.msg-wrap.active {
+    background-color: $border-color !important;
+}
+
+.msg-reaction-wrap {
+    background-color: $background-color !important;
+}
+
+.msg-inputarea-textarea-wrap {
+    background-color: $background-color !important;
+    border-color: $text-color !important;
+}
+
+.msg-action-container .msg-action-divider {
+    background-color: $text-color !important;
+}
+
+.user-status.offline {
+    background-color: $gunmetal-gray !important;
+}
+
+.syno-chat span.msg-inputarea-send-btn.x-item-disabled button,
+span.msg-inputarea-send-btn.x-item-disabled button,
+span.msg-inputarea-send-btn button {
+    color: $jet-black !important;
+}
+
+div.anonymous-list * {
+    background-color: $default-background !important;
+}

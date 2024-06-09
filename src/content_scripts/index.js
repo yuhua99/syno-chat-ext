@@ -1,13 +1,18 @@
 import { getStorage } from "../common/storage";
-import { CHROME_SYNC_STORAGE_KEY, PRESET_CONFIGURATION } from "../common/settings";
+import {
+    PRIMARY_COLOR,
+    BG_COLOR,
+    BORDER_COLOR,
+} from "../common/settings";
 
-function loadAndDisplayStorageValue(result) {
-    const savedConfiguration = result || PRESET_CONFIGURATION;
-    const storageValue = savedConfiguration["storageValue"];    
-    console.info("Storage value is", storageValue);
+function setProperty(name, value) {
+    document.documentElement.style.setProperty(name, value);
+    console.log(name, value)
 }
 
-window.onload = function() {
+window.onload = function () {
     console.info("Content script loaded");
-    getStorage(CHROME_SYNC_STORAGE_KEY, loadAndDisplayStorageValue); 
+    getStorage(PRIMARY_COLOR, setProperty);
+    getStorage(BG_COLOR, setProperty);
+    getStorage(BORDER_COLOR, setProperty);
 }

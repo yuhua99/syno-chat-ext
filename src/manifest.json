@@ -3,7 +3,7 @@
   "name": "Chrome Extension Template",
   "description": "A Chrome Extension created using a template",
   "version": "0.0.1",
-  "author": "Clyde D'Souza",
+  "author": "yuhua",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -22,10 +22,13 @@
   "content_scripts": [
     {
       "matches": [
-        "*://github.com/*"
+        "https://chat.synology.com/*"
       ],
       "js": [
         "content_scripts.js"
+      ],
+      "css": [
+        "content_scripts.css"
       ]
     }
   ],
