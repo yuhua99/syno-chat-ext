@@ -6,11 +6,11 @@ import {
 } from "../common/settings";
 
 function setProperty(name, value) {
-    document.documentElement.style.setProperty(name, value);
+    document.documentElement.style.setProperty('--' + name, value);
     console.log(name, value)
 }
 
-window.onload = function () {
+window.onload = function() {
     console.info("Content script loaded");
     getStorage(PRIMARY_COLOR, setProperty);
     getStorage(BG_COLOR, setProperty);
