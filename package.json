@@ -1,9 +1,9 @@
 {
-  "name": "chrome-extension-template",
-  "version": "0.0.2",
+  "name": "syno-chat-extension",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "npx webpack --watch --progress",
+    "build": "npx webpack --watch --progress --mode=production",
     "build:prod": "npx webpack --config webpack.config.js --mode=production"
   },
   "engines": {
