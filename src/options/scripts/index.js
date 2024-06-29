@@ -1,5 +1,9 @@
-import { getStorage,setStorage } from "../../common/storage";
-import { PRESET_CONFIGURATION, CHROME_SYNC_STORAGE_KEY } from "../../common/settings";
+// --------------- [ SCSS Style ] ---------------
+import "../styles/options.scss";
+// ----------------------------------------------
+
+import { getStorage, setStorage } from "../../common/storage";
+import { CHROME_SYNC_STORAGE_KEY } from "../../common/settings";
 
 function saveConfiguration() {
     const updatedConfiguration = {
@@ -8,13 +12,12 @@ function saveConfiguration() {
     setStorage(CHROME_SYNC_STORAGE_KEY, updatedConfiguration);
 }
 
-function loadConfiguration(result) {
-    const savedConfiguration = result || PRESET_CONFIGURATION;  
+function loadConfiguration(savedConfiguration) {
     const storageValue = savedConfiguration["storageValue"];
     document.getElementById("storageValue").value = storageValue;
 }
 
-window.onload = function() {
+window.onload = function () {
     console.info("Options script loaded");
     document.getElementById("SaveConfiguration").addEventListener("click", saveConfiguration);
     getStorage(CHROME_SYNC_STORAGE_KEY, loadConfiguration);

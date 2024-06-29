@@ -1,3 +1,7 @@
+// --------------- [ SCSS Style ] ---------------
+import "./styles/content_scripts.scss";
+// ----------------------------------------------
+
 import { getStorage } from "../common/storage";
 import {
     PRIMARY_COLOR,
@@ -10,7 +14,7 @@ function setProperty(name, value) {
     console.log(name, value)
 }
 
-window.onload = function() {
+window.onload = function () {
     console.info("Content script loaded");
     getStorage(PRIMARY_COLOR, setProperty);
     getStorage(BG_COLOR, setProperty);
