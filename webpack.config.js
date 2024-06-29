@@ -5,8 +5,8 @@ module.exports = {
     entry: {
         "background": "./src/background/index.js",
         "content_scripts": "./src/content_scripts/index.js",
-        "options": "./src/options/scripts/index.js",
-        "popup": "./src/popup/scripts/index.js",
+        "options": "./src/options/index.js",
+        "popup": "./src/popup/index.js",
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -34,5 +34,10 @@ module.exports = {
                 { from: "icons/*", to: path.resolve(__dirname, "dist"), context: "src/" }
             ]
         }),
-    ]
+    ],
+    resolve: {
+        alias: {
+            "src": path.resolve(__dirname, "src"),
+        }
+    }
 };

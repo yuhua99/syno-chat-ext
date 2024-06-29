@@ -1,13 +1,13 @@
 // --------------- [ SCSS Style ] ---------------
-import "../styles/popup.scss";
+import "./styles/popup.scss";
 // ----------------------------------------------
 
-import { getStorage, setStorage } from "../../common/storage";
+import { getStorage, setStorage } from "src/common/storage";
 import {
     PRIMARY_COLOR,
     BG_COLOR,
     BORDER_COLOR,
-} from "../../common/settings"
+} from "src/common/settings"
 
 window.onload = function () {
     const primaryColorInput = document.getElementById('primaryColor')

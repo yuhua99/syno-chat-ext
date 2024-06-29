@@ -1,9 +1,9 @@
 // --------------- [ SCSS Style ] ---------------
-import "../styles/options.scss";
+import "./styles/options.scss";
 // ----------------------------------------------
 
-import { getStorage, setStorage } from "../../common/storage";
-import { CHROME_SYNC_STORAGE_KEY } from "../../common/settings";
+import { getStorage, setStorage } from "src/common/storage";
+import { CHROME_SYNC_STORAGE_KEY } from "src/common/settings";
 
 function saveConfiguration() {
     const updatedConfiguration = {

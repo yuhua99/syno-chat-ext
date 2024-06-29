@@ -2,12 +2,12 @@
 import "./styles/content_scripts.scss";
 // ----------------------------------------------
 
-import { getStorage } from "../common/storage";
+import { getStorage } from "src/common/storage";
 import {
     PRIMARY_COLOR,
     BG_COLOR,
     BORDER_COLOR,
-} from "../common/settings";
+} from "src/common/settings";
 
 function setProperty(name, value) {
     document.documentElement.style.setProperty('--' + name, value);
