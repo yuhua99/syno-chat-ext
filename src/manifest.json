@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Chrome Extension Template",
-  "description": "A Chrome Extension created using a template",
+  "name": "Syno Chat Extension",
+  "description": "A chrome extention that add important functionalities to Synology Chat thar are not supported natively. :(",
   "version": "0.0.1",
   "author": "yuhua",
   "icons": {
@@ -26,14 +26,11 @@
       ],
       "js": [
         "content_scripts.js"
-      ],
-      "css": [
-        "content_scripts.css"
       ]
     }
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Open template popup"
+    "default_title": "Chat Extension"
   }
 }

@@ -1,9 +1,7 @@
-export const CHROME_SYNC_STORAGE_KEY = "chrome-extension-template";
+// ------------ [Storage Settings] ------------
+export const CHROME_SYNC_STORAGE_KEY = "syno-chat-extension";
 
-export const PRESET_CONFIGURATION = {
-    "storageValue": "https://clydedsouza.net",
-};
-
+// ------------ [CSS Settings] ------------
 export const PRIMARY_COLOR = "primary-color"
 export const BG_COLOR = "background-color"
 export const BORDER_COLOR = "border-color"
