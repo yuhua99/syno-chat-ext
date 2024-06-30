@@ -9,14 +9,21 @@ import {
     BORDER_COLOR,
 } from "src/common/settings";
 
+function getValue(_, value) {
+    return value;
+}
+
 function setProperty(name, value) {
     document.documentElement.style.setProperty('--' + name, value);
     console.log(name, value)
 }
 
-window.onload = function () {
+window.onload = function() {
     console.info("Content script loaded");
-    getStorage(PRIMARY_COLOR, setProperty);
-    getStorage(BG_COLOR, setProperty);
-    getStorage(BORDER_COLOR, setProperty);
+    const primaryColor = getStorage(PRIMARY_COLOR, getValue) || "#f1beb0";
+    const bgColor = getStorage(BG_COLOR, getValue) || "#424242";
+    const borderColor = getStorage(BORDER_COLOR, getValue) || "#323232";
+    setProperty('primary-color', primaryColor);
+    setProperty('bg-color', bgColor);
+    setProperty('border-color', borderColor);
 }
