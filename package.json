@@ -7,7 +7,7 @@
     "build:prod": "npx webpack --config webpack.config.js --mode=production"
   },
   "engines": {
-    "node": "20.9.0"
+    "node": "^20.15.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^12.0.2",
