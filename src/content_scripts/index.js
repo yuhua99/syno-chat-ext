@@ -1,6 +1,8 @@
 // --------------- [ SCSS Style ] ---------------
 import "./styles/content_scripts.scss";
-// ----------------------------------------------
+
+// --------------- [ JS Module ] ----------------
+import "./keyboard_shortcut.js";
 
 import { getStorage } from "src/common/storage";
 import {
@@ -18,7 +20,7 @@ function setProperty(name, value) {
     console.log(name, value)
 }
 
-window.onload = function() {
+window.addEventListener("load", function () {
     console.info("Content script loaded");
     const primaryColor = getStorage(PRIMARY_COLOR, getValue) || "#f1beb0";
     const bgColor = getStorage(BG_COLOR, getValue) || "#424242";
@@ -26,4 +28,4 @@ window.onload = function() {
     setProperty('primary-color', primaryColor);
     setProperty('bg-color', bgColor);
     setProperty('border-color', borderColor);
-}
+});
