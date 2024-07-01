@@ -5,6 +5,11 @@ import * as element from "src/common/element"
 
 // Handler
 function openChatRoomSearch(event, handler) {
+    let state = getCurrentState();
+    if (state.isfocusOnChatMsgBox) {
+        return;
+    }
+
     element.chatRoomSearch().click()
     element.chatRoomSearchInputBox().click();
 }
