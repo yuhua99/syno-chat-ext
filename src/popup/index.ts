@@ -2,22 +2,19 @@
 import "./styles/popup.scss";
 // ----------------------------------------------
 
-import { getStorage, setStorage } from "src/common/storage";
+import { getStorage, setStorage } from "common/storage";
 import {
     PRIMARY_COLOR,
     BG_COLOR,
-    BORDER_COLOR,
-} from "src/common/settings"
+} from "common/settings"
 
 window.onload = function () {
-    const primaryColorInput = document.getElementById('primaryColor')
-    const bgColorInput = document.getElementById('backgroundColor')
-    const borderColorInput = document.getElementById('borderColor')
+    const primaryColorInput = document.getElementById('primaryColor') as HTMLInputElement
+    const bgColorInput = document.getElementById('backgroundColor') as HTMLInputElement
     const saveButton = document.getElementById('save')
 
     saveButton.addEventListener('click', function () {
         setStorage(BG_COLOR, bgColorInput.value)
         setStorage(PRIMARY_COLOR, primaryColorInput.value)
-        setStorage(BORDER_COLOR, borderColorInput.value)
     })
 };

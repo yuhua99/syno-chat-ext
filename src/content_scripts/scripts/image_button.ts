@@ -1,7 +1,7 @@
 const observer = new MutationObserver(function appendImageButton (mutations, mutationInstance) {
     const buttonsDiv = document.getElementById("ext-comp-1204");
     if (buttonsDiv) {
-        const imageBtn = buttonsDiv.getElementsByClassName('msg-inputarea-emoji-btn')[0].cloneNode(true);
+        let imageBtn = buttonsDiv.getElementsByClassName('msg-inputarea-emoji-btn')[0].cloneNode(true) as HTMLSpanElement;
         imageBtn.id = 'meme';
         imageBtn.style.transform = 'rotate(180deg)';
         imageBtn.addEventListener('mouseenter', function() {
@@ -10,7 +10,7 @@ const observer = new MutationObserver(function appendImageButton (mutations, mut
         imageBtn.addEventListener('mouseleave', function() {
             imageBtn.classList.remove('x-btn-over');
         });
-        const scheduleBtn = buttonsDiv.getElementsByClassName('msg-inputarea-schedule-btn')[0];
+        let scheduleBtn = buttonsDiv.getElementsByClassName('msg-inputarea-schedule-btn')[0] as HTMLSpanElement;
         if (scheduleBtn) {
             buttonsDiv.insertBefore(imageBtn, scheduleBtn.nextSibling);
         } else {

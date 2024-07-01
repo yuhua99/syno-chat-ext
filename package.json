@@ -21,6 +21,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@types/chrome": "^0.0.268",
     "hotkeys-js": "^3.13.7"
   }
 }
