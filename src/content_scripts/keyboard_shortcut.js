@@ -25,9 +25,7 @@ function escHandler(event, handler) {
 window.addEventListener("load", function (event) {
     // Register keyboard shortcut
     hotkeys('/', openChatRoomSearch);
-    hotkeys('esc', {
-        element: element.chatMainMsgInputBox(),
-    }, escHandler);
+    hotkeys('esc', escHandler);
 
     // whitelist filter
     var _oldFilter = hotkeys.filter;
