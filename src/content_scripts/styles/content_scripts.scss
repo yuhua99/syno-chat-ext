@@ -93,7 +93,7 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     background-color: $background-color !important;
 }
 
-.msg-title {
+.chat-msg-top-toolbar .msg-title a {
     color: $text-color !important;
 }
 
@@ -148,6 +148,10 @@ span.msg-inputarea-send-btn {
 .msg-inputarea-textarea-wrap {
     background-color: $background-color !important;
     border-color: $text-color !important;
+
+    .msg-inputarea-textarea {
+        color: $text-color !important;
+    }
 }
 
 .msg-action-container .msg-action-divider {
