@@ -22,7 +22,12 @@ module.exports = {
                     "css-loader",
                     "sass-loader"
                 ]
-            }
+            },
+            {
+                test: /\.ts?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
         ]
     },
     plugins: [
@@ -36,6 +41,7 @@ module.exports = {
         }),
     ],
     resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
         alias: {
             "src": path.resolve(__dirname, "src"),
         }
