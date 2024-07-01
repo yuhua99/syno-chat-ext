@@ -1,7 +1,7 @@
 $primary-color: var(--primary-color);
 $background-color: var(--background-color);
+$background-color-darker: var(--background-color-darker);
 $text-color: #f9f6ee;
-$border-color: var(--border-color);
 $gunmetal-gray: #818589;
 $bone-white: rgba(249, 246, 238, 0.6);
 $jet-black: #343434;
@@ -9,7 +9,7 @@ $default-background: rgb(232, 241, 243);
 
 .x-border-panel:not(.syno-ux-formpanel, .avatar-ct),
 div.x-panel.chat-content-panel.syno-ux-panel.chat-content-panel.x-panel-noborder:not(.syno-ux-formpanel) {
-    background-color: $border-color !important;
+    background-color: $background-color-darker !important;
     background-image: none !important;
 }
 
@@ -122,7 +122,7 @@ span.msg-inputarea-send-btn {
 }
 
 .msg-additional-hashtag-wrap {
-    background-color: $border-color !important;
+    background-color: $background-color-darker !important;
 
     .hash-teg {
         color: $primary-color !important;
@@ -130,7 +130,9 @@ span.msg-inputarea-send-btn {
 }
 
 .msg-wrap .markdown>.label {
-    background-color: $text-color !important;
+    background-color: $background-color-darker !important;
+    color: $primary-color !important;
+    border: 1px solid $background-color-darker !important;
 }
 
 .msg-wrap .system-text {
@@ -142,19 +144,22 @@ span.msg-inputarea-send-btn {
 }
 
 .msg-wrap.active {
-    background-color: $border-color !important;
+    background-color: $background-color-darker !important;
 }
 
 .msg-reaction-wrap {
     background-color: $background-color !important;
 }
 
-.msg-inputarea-textarea-wrap {
+.chat-input-aria-main-v2 {
     background-color: $background-color !important;
-    border-color: $text-color !important;
 
-    .msg-inputarea-textarea {
-        color: $text-color !important;
+    .msg-inputarea-textarea-wrap {
+        border-color: $text-color !important;
+
+        .msg-inputarea-textarea {
+            color: $text-color !important;
+        }
     }
 }
 
@@ -175,3 +180,4 @@ span.msg-inputarea-send-btn button {
 div.anonymous-list * {
     background-color: $default-background !important;
 }
+
