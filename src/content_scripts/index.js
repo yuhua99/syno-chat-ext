@@ -2,7 +2,7 @@
 import "./styles/content_scripts.scss";
 
 // --------------- [ JS Module ] ----------------
-import "./keyboard_shortcut.js";
+import "./scripts/keyboard_shortcut.js";
 
 import { getStorage } from "src/common/storage";
 import {
