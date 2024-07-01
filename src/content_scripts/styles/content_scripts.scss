@@ -93,8 +93,12 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     background-color: $background-color !important;
 }
 
-.chat-msg-top-toolbar .msg-title a {
+.chat-msg-top-toolbar .msg-title {
     color: $text-color !important;
+
+    a {
+        color: $text-color !important;
+    }
 }
 
 .msg-wrap *:not(
