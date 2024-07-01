@@ -2,6 +2,7 @@
 import "./styles/content_scripts.scss";
 
 // --------------- [ JS Module ] ----------------
+import "./scripts/image_button.js";
 import "./scripts/keyboard_shortcut.js";
 
 import { getStorage } from "src/common/storage";
