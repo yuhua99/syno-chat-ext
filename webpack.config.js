@@ -3,10 +3,10 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: {
-        "background": "./src/background/index.js",
-        "content_scripts": "./src/content_scripts/index.js",
-        "options": "./src/options/index.js",
-        "popup": "./src/popup/index.js",
+        "background": "./src/background/index.ts",
+        "content_scripts": "./src/content_scripts/index.ts",
+        "options": "./src/options/index.ts",
+        "popup": "./src/popup/index.ts",
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -22,7 +22,12 @@ module.exports = {
                     "css-loader",
                     "sass-loader"
                 ]
-            }
+            },
+            {
+                test: /\.ts?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
         ]
     },
     plugins: [
@@ -36,8 +41,7 @@ module.exports = {
         }),
     ],
     resolve: {
-        alias: {
-            "src": path.resolve(__dirname, "src"),
-        }
+        modules: [path.resolve(__dirname, "src"), "node_modules"],
+        extensions: ['.ts', '.js'],
     }
 };
