@@ -7,7 +7,7 @@ $bone-white: rgba(249, 246, 238, 0.6);
 $jet-black: #343434;
 $default-background: rgb(232, 241, 243);
 
-.x-border-panel:not(.syno-ux-formpanel, .avatar-ct),
+.x-border-panel:not(.syno-ux-formpanel, .avatar-ct, .chat-input-aria-main-v2),
 div.x-panel.chat-content-panel.syno-ux-panel.chat-content-panel.x-panel-noborder:not(.syno-ux-formpanel) {
     background-color: $background-color-darker !important;
     background-image: none !important;
