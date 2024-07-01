@@ -181,3 +181,14 @@ div.anonymous-list * {
     background-color: $default-background !important;
 }
 
+/****************
+ * Msg splitter *
+ ****************/
+
+.new-msg-splitter-line {
+    background-color: $primary-color !important;
+}
+.new-msg-splitter-text {
+    background-color: $background-color !important;
+    color: $primary-color !important;
+}
