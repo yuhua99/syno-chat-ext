@@ -1,5 +1,5 @@
 const observer = new MutationObserver(function appendImageButton (mutations, mutationInstance) {
-    const buttonsDiv = document.getElementById("ext-comp-1204");
+    const buttonsDiv = document.getElementsByClassName("msg-inputarea-buttons")[0] as HTMLSpanElement;
     if (buttonsDiv) {
         let imageBtn = buttonsDiv.getElementsByClassName('msg-inputarea-emoji-btn')[0].cloneNode(true) as HTMLSpanElement;
         imageBtn.id = 'meme';
