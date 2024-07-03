@@ -101,19 +101,44 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     }
 }
 
-.msg-wrap *:not(
-    .markdown,
-    .markdown>.label,
-    .comment-count,
-    .system-text,
-    .hash-tag,
-    button
-){
+.chat-search-result span {
     color: $text-color !important;
 }
 
-.msg-wrap .comment-count {
-    color: var(--primary-color) !important;
+.msg-wrap {
+    *:is(
+        .msg-user-channel-name :is(.msg-left-brackets, .msg-channel-name),
+        .msg-right-brackets,
+        .msg-text>.text-wrapper>div.markdown,
+        .msg-text>.file-wrapper>.file-desc>div.markdown,
+        .msg-text>.url-wrapper .url-text-wrapper>.url-title,
+        .msg-user-name,
+        div.msg-text,
+        .commentor
+    ){
+        color: $text-color !important;
+    }
+
+    .msg-text>.url-wrapper .url-text-wrapper>.url-desc {
+        color: rgba($text-color, 0.7) !important;
+    }
+
+    .msg-text>.text-wrapper>div.markdown>pre {
+        color: $gunmetal-gray;
+    }
+
+    *:is(.comment-count,
+        .msg-count) {
+        color: var(--primary-color) !important;
+    }
+
+    .msg-inputarea-textarea-wrap{
+        border: 1px solid $primary-color !important;
+    }
+
+    .msg-action-container .msg-action-divider {
+        background-color: $text-color !important;
+    }
 }
 
 span.msg-inputarea-send-btn {
@@ -161,10 +186,6 @@ span.msg-inputarea-send-btn {
             color: $text-color !important;
         }
     }
-}
-
-.msg-action-container .msg-action-divider {
-    background-color: $text-color !important;
 }
 
 .user-status.offline {
