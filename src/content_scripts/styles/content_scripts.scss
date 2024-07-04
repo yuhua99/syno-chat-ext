@@ -196,14 +196,6 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     }
 }
 
-.msgs .item-wrap .date-splitter-wrapper .date-splitter-line
-{
-    $shrinked: 15px;
-    background-color: $split-line-color;
-    margin: 0px $shrinked 0px $shrinked;
-    width: calc(100% - #{$shrinked * 2});
-}
-
 span.msg-inputarea-send-btn {
     background-color: $primary-color !important;
     border-color: $primary-color !important;
@@ -239,10 +231,19 @@ div.anonymous-list * {
  * Msg splitter *
  ****************/
 
-.new-msg-splitter-line {
-    background-color: $primary-color !important;
-}
-.new-msg-splitter-text {
-    background-color: $background-color !important;
-    color: $primary-color !important;
+.msgs .item-wrap .date-splitter-wrapper {
+
+    .date-splitter-line,
+    .new-msg-splitter-line {
+        $shrinked: 15px;
+        background-color: $primary-color !important;
+        margin: 0px $shrinked 0px $shrinked;
+        width: calc(100% - #{$shrinked * 2});
+    }
+
+    .date-splitter-text,
+    .new-msg-splitter-text {
+        background-color: $background-color !important;
+        color: $primary-color !important;
+    }
 }
