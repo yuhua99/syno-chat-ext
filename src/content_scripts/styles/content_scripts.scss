@@ -65,10 +65,13 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
 .date-splitter-text,
 .msg-wrap.group-first,
 .msg-additional-wrapper,
-.x-window.chat-thread-dialog .x-window-body.x-window-body-noheader
+.x-window.chat-thread-dialog .x-window-body.x-window-body-noheader,
+.cursor-pointer.comment-wrap
 {
     background-color: $background-color !important;
 }
+
+
 
 .welcome-hello,
 .date-splitter-text {
@@ -112,7 +115,8 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
         .msg-user-channel-name :is(.msg-left-brackets, .msg-channel-name),
         .msg-right-brackets,
         .msg-text>.text-wrapper>div.markdown,
-        .msg-text>.file-wrapper>.file-desc>div.markdown,
+        .msg-text>.file-wrapper .file-desc>div.markdown,
+        .msg-text>.file-wrapper .file-text-wrapper *:is(.msg-file-name),
         .msg-text>.url-wrapper .url-text-wrapper>.url-title,
         .msg-text>.msg-additional-btns>.msg-reaction-wrap:not(.self-added) .msg-reaction-num,
         .msg-user-name,
@@ -136,6 +140,8 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
         span.msg-file-name,
         .collapsed-msg-more-btn
         {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
+                $background-color 10px) !important;
             color: $primary-color !important;
         }
         .vote-wrapper {
