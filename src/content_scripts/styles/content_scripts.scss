@@ -137,12 +137,12 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
 
         span:is(.mention-user, .hash-tag, .mention-default),
         a,
-        span.msg-file-name,
-        .collapsed-msg-more-btn
+        span.msg-file-name
         {
             color: $primary-color !important;
         }
         .collapsed-msg-more-btn {
+            color: $primary-color !important;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
                         $background-color 10px) !important;
         }
