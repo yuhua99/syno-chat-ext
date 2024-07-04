@@ -140,9 +140,11 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
         span.msg-file-name,
         .collapsed-msg-more-btn
         {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
-                $background-color 10px) !important;
             color: $primary-color !important;
+        }
+        .collapsed-msg-more-btn {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
+                        $background-color 10px) !important;
         }
         .vote-wrapper {
             .count-bar-wrap .count-bar {
