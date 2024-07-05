@@ -91,7 +91,7 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     background-color: $background-color !important;
 }
 
-.chat-msg-top-toolbar *:is(
+.chat-msg-top-toolbar :is(
     .msg-title,
     a,
     .chat-center-content-panel .member-btn>button
@@ -108,16 +108,22 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
         background-color: $background-color-darker !important;
     }
     &:hover {
-        // currently not working
-        background-color: rgba($background-color, 0.9) !important;
+        background-color: $background-color !important;
+
+        .inner-wrapper {
+            background-color: $background-color !important;
+        }
+        .file-wrapper .inner-wrapper div.msg-file-name:hover {
+            color: $primary-color !important;
+        }
     }
-    *:is(
+    :is(
         .msg-user-channel-name :is(.msg-left-brackets, .msg-channel-name),
         .msg-right-brackets,
-        .msg-text>.text-wrapper>div.markdown,
-        .msg-text>.file-wrapper .file-desc>div.markdown,
-        .msg-text>.file-wrapper .file-text-wrapper *:is(.msg-file-name),
-        .msg-text>.url-wrapper .url-text-wrapper>.url-title,
+        .text-wrapper>div.markdown,
+        .file-wrapper .file-desc>div.markdown,
+        .file-wrapper .msg-file-name:not(:hover),
+        .url-wrapper .url-text-wrapper>.url-title:not(:hover),
         .msg-text>.msg-additional-btns>.msg-reaction-wrap:not(.self-added) .msg-reaction-num,
         .msg-user-name,
         div.msg-text,
@@ -127,20 +133,10 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     }
 
     .msg-text {
-        .url-wrapper .url-text-wrapper>.url-desc {
-            color: rgba($text-color, 0.7) !important;
-        }
-
         .text-wrapper div.markdown>pre {
             color: $gunmetal-gray;
         }
 
-        span:is(.mention-user, .hash-tag, .mention-default),
-        a,
-        span.msg-file-name
-        {
-            color: $primary-color !important;
-        }
         .collapsed-msg-more-btn {
             color: $primary-color !important;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
@@ -161,11 +157,18 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
         }
     }
 
-    *:is(
-        .comment-count,
-        .msg-count
-    ) {
-        color: var(--primary-color) !important;
+    span:is(.mention-user, .hash-tag, .mention-default),
+    a,
+    span.msg-file-name,
+    .url-wrapper .url-text-wrapper>.url-title:hover,
+    .comment-count,
+    .msg-count
+    {
+        color: $primary-color !important;
+    }
+
+    .url-wrapper .url-text-wrapper>.url-desc {
+        color: rgba($text-color, 0.7) !important;
     }
 
     .msg-inputarea-textarea-wrap{
