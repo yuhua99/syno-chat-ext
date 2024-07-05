@@ -83,6 +83,11 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     border: none !important;
 }
 
+.chat-thread-dialog
+{
+    box-shadow: 0 1px 0 $background-color !important;
+}
+
 /**************
  * Chat Panel *
  **************/
@@ -97,6 +102,10 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     .chat-center-content-panel .member-btn>button
 ) {
     color: $text-color !important;
+}
+
+.chat-center-content-panel.collapsed::after {
+    background-color: $background-color !important;
 }
 
 .chat-search-result span {
@@ -180,7 +189,7 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     }
 
     div.msg-additional-hashtag-wrap {
-        background-color: $background-color-darker !important;
+        background-color: $background-color !important;
         border-color: $primary-color !important;
 
         .hash-tag {
