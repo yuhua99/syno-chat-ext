@@ -113,8 +113,8 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
 }
 
 .msg-wrap {
-    &:active {
-        background-color: $background-color-darker !important;
+    &:active, &.active {
+        background-color: $background-color !important;
     }
     &:hover {
         background-color: $background-color !important;
