@@ -4,6 +4,7 @@ import "./styles/content_scripts.scss";
 // --------------- [ JS Module ] ----------------
 import "./scripts/image_button.ts";
 import "./scripts/keyboard_shortcut.ts";
+import "./scripts/mark_as_unread.ts"
 
 import { getStorage } from "common/storage";
 import {
