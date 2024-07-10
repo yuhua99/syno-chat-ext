@@ -7,7 +7,6 @@ function createMarkUnreadItem(){
 
     const newUnreadItem = document.createElement('a');
     newUnreadItem.className = 'x-menu-list-item';
-    newUnreadItem.setAttribute('id', 'mark-as-unread');
     newUnreadItem.setAttribute('hidefocus', 'true');
     newUnreadItem.setAttribute('unselectable', 'on');
     newUnreadItem.setAttribute('href', '#');
@@ -17,6 +16,7 @@ function createMarkUnreadItem(){
     newDiv.className = 'x-menu-item x-unselectable';
 
     const newSpan = document.createElement('span');
+    newSpan.setAttribute('id', 'mark-as-unread');
     newSpan.className = 'x-menu-item-text';
     newSpan.textContent = 'Mark as Unread';
 
@@ -34,7 +34,6 @@ function createMarkUnreadItem(){
     return newUnreadItem;
 };
 
-
 function createContextMenu(): ContextMenu {
     const contextMenu = document.createElement('div') as ContextMenu;
     contextMenu.appendChild(createMarkUnreadItem());
@@ -47,19 +46,27 @@ function createContextMenu(): ContextMenu {
     return contextMenu;
 };
 
+function markChannelUnread(channelItem: HTMLElement, unreadNumber: number = 1) {
+    if (!channelItem) return;
+    const unreadElement = channelItem.querySelector('.unread.number-0');
+    if (unreadElement && unreadNumber === 1) {
+        unreadElement.classList.remove('number-0');
+    }
+    else if (unreadElement && unreadNumber > 1) {
+        unreadElement.classList.remove('number-0');
+        unreadElement.classList.add(`number-${unreadNumber}`);
+    }
+    const hideButton = channelItem.querySelector('.hide-channel-btn');
+    if (hideButton) {
+        hideButton.remove();
+    }
+}
+
 function clickChannel(event: MouseEvent, contextMenu: ContextMenu) {
     const target = event.target as HTMLElement;
     if (event.button === 0 && contextMenu.isVisible){
         if (contextMenu.contains(target)) {
-            const channelItem = contextMenu.targetChannel;
-            const unreadElement = channelItem.querySelector('.unread.number-0');
-            if (unreadElement) {
-                unreadElement.classList.remove('number-0');
-            }
-            const hideButton = channelItem.querySelector('.hide-channel-btn');
-            if (hideButton) {
-                hideButton.remove();
-            }
+            markChannelUnread(contextMenu.targetChannel);
         }
         document.body.removeChild(contextMenu);
         contextMenu.isVisible = false;
@@ -69,6 +76,10 @@ function clickChannel(event: MouseEvent, contextMenu: ContextMenu) {
         if (ul && !ul.querySelector('#mark-as-unread')) {
             ul.appendChild(createMarkUnreadItem());
         }
+    } else if (event.button === 0 && target.id === "mark-as-unread") {
+        const currChannel = document.querySelector('.channel-list-item.x-view-selected') as HTMLElement;
+        // TODO: count the text-wrapper
+        markChannelUnread(currChannel, 10);
     } else if (event.button === 2) {
         event.preventDefault();
         if (target.classList.contains('channel-list-item') || target.closest('.channel-list-item')) {
