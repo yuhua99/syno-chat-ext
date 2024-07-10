@@ -3,30 +3,54 @@ interface ContextMenu extends HTMLDivElement {
     targetChannel: HTMLSpanElement;
 }
 
+function createMarkUnreadItem(){
+
+    const newUnreadItem = document.createElement('a');
+    newUnreadItem.className = 'x-menu-list-item';
+    newUnreadItem.setAttribute('id', 'mark-as-unread');
+    newUnreadItem.setAttribute('hidefocus', 'true');
+    newUnreadItem.setAttribute('unselectable', 'on');
+    newUnreadItem.setAttribute('href', '#');
+    newUnreadItem.setAttribute('role', 'menuitem');
+
+    const newDiv = document.createElement('div');
+    newDiv.className = 'x-menu-item x-unselectable';
+
+    const newSpan = document.createElement('span');
+    newSpan.className = 'x-menu-item-text';
+    newSpan.textContent = 'Mark as Unread';
+
+    newDiv.appendChild(newSpan);
+    newUnreadItem.appendChild(newDiv);
+
+    newUnreadItem.addEventListener('mouseover', () => {
+        newUnreadItem.classList.add("x-menu-item-active");
+    });
+
+    newUnreadItem.addEventListener('mouseout', () => {
+        newUnreadItem.classList.remove('x-menu-item-active');
+    });
+
+    return newUnreadItem;
+};
+
+
 function createContextMenu(): ContextMenu {
     const contextMenu = document.createElement('div') as ContextMenu;
-    contextMenu.className = 'custom-context-menu';
+    contextMenu.appendChild(createMarkUnreadItem());
     contextMenu.classList.add('x-menu', 'x-menu-floating', 'x-layer', 'syno-ux-menu', 'chat-menu', 'no-icon', 'syno-ux-button-menu');
-    contextMenu.innerHTML = '<ul class="x-menu-list"><span class="x-menu-item-text">mark as unread</span></ul>';
+    contextMenu.style.cssText += 'padding: 0px !important;';
     contextMenu.style.position = 'fixed';
-    contextMenu.style.zIndex = '30000';
+    contextMenu.style.zIndex = '15000';
     contextMenu.style.visibility = 'visible';
     contextMenu.isVisible = false;
-
-    contextMenu.addEventListener('mouseover', () => {
-        contextMenu.style.background = "#f0f0f0";
-    });
-
-    contextMenu.addEventListener('mouseout', () => {
-        contextMenu.style.background = "#ffffff";
-    });
-
     return contextMenu;
 };
 
 function clickChannel(event: MouseEvent, contextMenu: ContextMenu) {
+    const target = event.target as HTMLElement;
     if (event.button === 0 && contextMenu.isVisible){
-        if (contextMenu.contains(event.target as Node)) {
+        if (contextMenu.contains(target)) {
             const channelItem = contextMenu.targetChannel;
             const unreadElement = channelItem.querySelector('.unread.number-0');
             if (unreadElement) {
@@ -39,9 +63,14 @@ function clickChannel(event: MouseEvent, contextMenu: ContextMenu) {
         }
         document.body.removeChild(contextMenu);
         contextMenu.isVisible = false;
+    } else if (event.button === 0 && target.classList.contains('msg-add-action-btn')) { 
+        const moreMenu = document.querySelector('.hover-action-more-menu');
+        const ul = moreMenu?.querySelector('.x-menu-list');
+        if (ul && !ul.querySelector('#mark-as-unread')) {
+            ul.appendChild(createMarkUnreadItem());
+        }
     } else if (event.button === 2) {
         event.preventDefault();
-        const target = event.target as HTMLElement;
         if (target.classList.contains('channel-list-item') || target.closest('.channel-list-item')) {
             if (target.classList.contains('channel-list-item')) {
                 contextMenu.targetChannel = target;
@@ -56,6 +85,7 @@ function clickChannel(event: MouseEvent, contextMenu: ContextMenu) {
         }
     }
 };
+
 
 const observer_channel = new MutationObserver(function(mutationsList, observerInstance) {
     const channelList = document.querySelectorAll('.channel-list-item');
