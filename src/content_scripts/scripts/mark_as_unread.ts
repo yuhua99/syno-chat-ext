@@ -82,7 +82,6 @@ function markChannelUnread(channelItem: HTMLElement, unreadNumber: number = 1) {
 };
 
 function clickChannel(event: MouseEvent) {
-    event.preventDefault();
     const target = event.target as HTMLElement;
     if (event.button === 0) {
         if (contextMenu.isVisible) {
