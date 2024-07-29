@@ -8,8 +8,16 @@ $jet-black: #343434;
 $default-background: rgb(232, 241, 243);
 $split-line-color: rgba($text-color, 0.7) !important;
 
-.x-border-panel:not(.syno-ux-formpanel, .avatar-ct, .chat-input-aria-main-v2),
-div.x-panel.chat-content-panel.syno-ux-panel.chat-content-panel.x-panel-noborder:not(.syno-ux-formpanel) {
+.x-border-panel:not(
+    .syno-ux-formpanel,
+    .avatar-ct,
+    .chat-input-aria-main-v2,
+    .syno-ux-textfilter,
+    .member-list-dataview
+),
+div.x-panel.chat-content-panel.syno-ux-panel.chat-content-panel.x-panel-noborder:not(
+    .syno-ux-formpanel
+) {
     background-color: $background-color-darker !important;
     background-image: none !important;
 }
@@ -226,9 +234,11 @@ span.msg-inputarea-send-btn {
 
     .msg-inputarea-textarea-wrap {
         border-color: $split-line-color;
+        background-color: $background-color !important;
 
         .msg-inputarea-textarea {
             color: $text-color !important;
+            background-color: $background-color !important;
         }
     }
 }
