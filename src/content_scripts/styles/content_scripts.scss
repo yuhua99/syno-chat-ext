@@ -174,8 +174,14 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
             background-color: $text-color !important;
         }
 
+        // markdown code block bacground color
         .markdown .pre {
             background-color: $background-color-lighter !important;
+        }
+
+        // left border of uploaded image and file
+        .url-wrapper, .file-wrapper {
+            border-left: 4px solid $background-color-lighter !important;
         }
     }
 
