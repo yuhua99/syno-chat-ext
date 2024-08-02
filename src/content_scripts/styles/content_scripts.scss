@@ -151,10 +151,6 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     }
 
     .msg-text {
-        :is(.text-wrapper, .file-wrapper) div.markdown>pre {
-            color: $gunmetal-gray;
-        }
-
         .collapsed-msg-more-btn {
             color: $primary-color !important;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
@@ -176,6 +172,10 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
 
         .markdown li::before {
             background-color: $text-color !important;
+        }
+
+        .markdown .pre {
+            background-color: $background-color-lighter !important;
         }
     }
 
