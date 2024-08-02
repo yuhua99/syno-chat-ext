@@ -2,12 +2,11 @@ $primary-color: var(--primary-color);
 $background-color: var(--background-color);
 $background-color-darker: var(--background-color-darker);
 $background-color-lighter: var(--background-color-lighter);
+$offline-status: var(--offline-status);
 $text-color: #f9f6ee;
-$gunmetal-gray: #818589;
 $bone-white: rgba(249, 246, 238, 0.6);
-$jet-black: #343434;
 $default-background: rgb(232, 241, 243);
-$split-line-color: rgba($text-color, 0.7) !important;
+$split-line: rgba($text-color, 0.5);
 
 .x-border-panel:not(
     .syno-ux-formpanel,
@@ -38,16 +37,15 @@ div.x-panel.x-panel-noborder.x-border-panel:not(.syno-ux-formpanel) {
 }
 
 .online-status.online-number-offline.offline {
-    background-color: rgba($primary-color, 0.3) !important;
+    background-color: $offline-status !important;
 }
 
 div.channel-list-item.x-view-selected>.online-status.online-number-online {
     background-color: $text-color !important;
 }
 
-// TODO: change color
 div.channel-list-item.x-view-selected>.online-status.online-number-offline {
-    background-color: $gunmetal-gray !important;
+    background-color: $background-color-lighter !important;
 }
 
 .online-status.online-number-online,
@@ -60,9 +58,8 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     margin-left: 6px;
 }
 
-// TODO: change color
 .channel-list-item.x-view-selected * {
-    color: $jet-black !important;
+    color: $background-color !important;
 }
 
 /************
@@ -231,7 +228,7 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     }
 
     &.group-first.thread-header {
-        border-bottom-color: $split-line-color;
+        border-bottom-color: $split-line !important;
     }
 }
 
@@ -244,7 +241,7 @@ span.msg-inputarea-send-btn {
     background-color: $background-color !important;
 
     .msg-inputarea-textarea-wrap {
-        border-color: $split-line-color;
+        border-color: $split-line !important;
         background-color: $background-color !important;
 
         .msg-inputarea-textarea {
@@ -255,13 +252,13 @@ span.msg-inputarea-send-btn {
 }
 
 .user-status.offline {
-    background-color: $gunmetal-gray !important;
+    background-color: $background-color-lighter !important;
 }
 
 .syno-chat span.msg-inputarea-send-btn.x-item-disabled button,
 span.msg-inputarea-send-btn.x-item-disabled button,
 span.msg-inputarea-send-btn button {
-    color: $jet-black !important;
+    color: $background-color !important;
 }
 
 div.anonymous-list * {

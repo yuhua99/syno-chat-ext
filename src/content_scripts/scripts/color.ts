@@ -51,8 +51,8 @@ export function colorToHex(color: Color): string {
   return '#' + [color.r, color.g, color.b].map(x => padZero(x.toString(16))).join('')
 }
 
-export function colorToRgb(color: Color): string {
-  return `rgb(${color.r}, ${color.g}, ${color.b})`
+export function colorToRgba(color: Color): string {
+  return `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
 }
 
 export function adjustBrightness(color: Color, brightness: number): Color {
