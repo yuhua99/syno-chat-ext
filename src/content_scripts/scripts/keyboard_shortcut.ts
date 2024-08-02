@@ -14,6 +14,23 @@ function openChatRoomSearch(event: KeyboardEvent, hotkeyEvent: HotkeysEvent) {
     element.chatRoomSearchInputBox().click();
 }
 
+function moveBetweenChatRoom(event: KeyboardEvent, hotkeyEvent: HotkeysEvent) {
+    let chatRooms = Array.from(document.querySelectorAll(".channel-list-item:not(.hidden)"));
+    console.log("dsafasf")
+
+    let idx = chatRooms.findIndex((e: Element) => e.classList.contains("x-view-selected"))
+    if ((hotkeyEvent.key == "shift+[" && idx == 0) || (hotkeyEvent.key == "shift+]" && idx == chatRooms.length - 1)) {
+        return;
+    }
+    console.log(hotkeyEvent.key, idx)
+    if (hotkeyEvent.key == "shift+[") {
+        (chatRooms[idx - 1] as HTMLElement).click();
+    } else if (hotkeyEvent.key == "shift+]") {
+        (chatRooms[idx + 1] as HTMLElement).click();
+    }
+    event.preventDefault();
+}
+
 function escHandler(event: KeyboardEvent, hotkeyEvent: HotkeysEvent) {
     let state = getCurrentState();
 
@@ -26,6 +43,8 @@ window.addEventListener("load", function (event) {
     // Register keyboard shortcut
     hotkeys('/', openChatRoomSearch);
     hotkeys('esc', escHandler);
+    hotkeys('shift+[', moveBetweenChatRoom);
+    hotkeys('shift+]', moveBetweenChatRoom);
 
     // whitelist filter
     var _oldFilter = hotkeys.filter;
