@@ -3,10 +3,13 @@ $background-color: var(--background-color);
 $background-color-darker: var(--background-color-darker);
 $background-color-lighter: var(--background-color-lighter);
 $offline-status: var(--offline-status);
+
 $text-color: #f9f6ee;
+$base-color: rgba($text-color, 0.7);
+$split-line: rgba($text-color, 0.5);
+
 $bone-white: rgba(249, 246, 238, 0.6);
 $default-background: rgb(232, 241, 243);
-$split-line: rgba($text-color, 0.5);
 
 .x-border-panel:not(
     .syno-ux-formpanel,
@@ -147,6 +150,11 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
         color: $text-color !important;
     }
 
+    // msg action container
+    .msg-action-container {
+      background-color: $background-color-darker !important;
+    }
+
     .msg-text {
         .collapsed-msg-more-btn {
             color: $primary-color !important;
@@ -263,6 +271,13 @@ span.msg-inputarea-send-btn button {
 
 div.anonymous-list * {
     background-color: $default-background !important;
+}
+
+// Chat msg top toolbar buttons
+.syno-chat {
+  .chat-msg-top-toolbar .syno-ux-button {
+    background-color: $base-color !important;
+  }
 }
 
 /****************
