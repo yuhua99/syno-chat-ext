@@ -111,6 +111,7 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
     .chat-center-content-panel .member-btn>button
 ) {
     color: $text-color !important;
+    padding-right: 5px;
 }
 
 .chat-center-content-panel.collapsed::after {
