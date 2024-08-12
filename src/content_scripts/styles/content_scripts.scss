@@ -278,6 +278,11 @@ div.anonymous-list * {
 .syno-chat {
   .chat-msg-top-toolbar .syno-ux-button {
     background-color: $base-color !important;
+
+    &>button::before {
+        // TODO - may cause issue
+        display: none !important;
+    }
   }
 }
 
