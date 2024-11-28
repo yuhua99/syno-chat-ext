@@ -307,3 +307,44 @@ div.anonymous-list * {
         color: $primary-color !important;
     }
 }
+
+/********************
+* chat popup window *
+*********************/
+
+.chat-modal-window {
+    background-color: $background-color !important;
+
+    .x-window-header-text {
+        color: $text-color !important;
+    }
+    .x-window-body {
+        background-color: $background-color !important;
+
+        .chat-list-item {
+            color: $text-color !important;
+        }
+        .x-tab-strip-text {
+            color: $text-color !important;
+        }
+        .jump-input {
+            background-color: $background-color-lighter !important;
+        }
+    }
+}
+
+#chat-jump-list {
+    background: $background-color !important;
+
+    .contentwrapper {
+        background-color: $background-color !important;
+
+        .chat-groupinglist-selected {
+            background-color: $background-color-lighter !important;
+        }
+
+        .name {
+            color: $text-color !important;
+        }
+    }
+}
