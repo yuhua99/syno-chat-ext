@@ -357,20 +357,40 @@ div.anonymous-list * {
 ****************/
 
 .upload-file-dialog {
+    .x-window-header {
+        border-bottom-color: $primary-color !important;
+    }
     .file-field {
         background-color: $background-color !important;
     }
     .file-field:hover {
         background-color: $background-color-lighter !important;
     }
-    .syno-ux-checkbox-label {
+    .syno-ux-checkbox-label,
+    .syno-ux-contenteditable {
         color: $text-color !important;
+    }
+    .syno-ux-contenteditable:hover {
+        border-color: $primary-color !important;
+    }
+    .syno-ux-contenteditable.x-form-focus {
+        border-color: $primary-color !important;
     }
     .x-box-item .filename,
     .x-box-item .file-desc {
         color: $text-color !important;
     }
+    .preview-contain {
+        background-color: $background-color-lighter !important;
+    }
     .plus-btn {
         background-color: $background-color !important;
+    }
+    .chat-green-btn {
+        border-color: $primary-color !important;
+        background-color: $primary-color !important;
+    }
+    .x-btn-text {
+        color: $background-color !important;
     }
 }
