@@ -72,6 +72,8 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
 .extra-date-splitter-wrapper,
 .date-splitter-line,
 .date-splitter-text,
+.new-msg-spliter-line,
+.new-msg-spliter-text,
 .msg-wrap.group-first,
 .msg-additional-wrapper,
 .x-window.chat-thread-dialog .x-window-body.x-window-body-noheader,
@@ -83,7 +85,8 @@ div.channel-list-item.x-view-selected>.online-status.online-number-offline {
 
 
 .welcome-hello,
-.date-splitter-text {
+.date-splitter-text,
+.new-msg-splitter-text {
     color: $text-color !important;
 }
 
