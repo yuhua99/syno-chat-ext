@@ -351,3 +351,26 @@ div.anonymous-list * {
         }
     }
 }
+
+/***************
+* image upload *
+****************/
+
+.upload-file-dialog {
+    .file-field {
+        background-color: $background-color !important;
+    }
+    .file-field:hover {
+        background-color: $background-color-lighter !important;
+    }
+    .syno-ux-checkbox-label {
+        color: $text-color !important;
+    }
+    .x-box-item .filename,
+    .x-box-item .file-desc {
+        color: $text-color !important;
+    }
+    .plus-btn {
+        background-color: $background-color !important;
+    }
+}
