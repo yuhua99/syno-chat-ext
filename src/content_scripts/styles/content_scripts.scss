@@ -317,13 +317,15 @@ div.anonymous-list * {
 
 .chat-modal-window {
     background-color: $background-color !important;
-
+    .x-window-header {
+        border-bottom-color: $primary-color !important;
+    }
     .x-window-header-text {
         color: $text-color !important;
     }
     .x-window-body {
         background-color: $background-color !important;
-
+        
         .chat-list-item {
             color: $text-color !important;
         }
@@ -332,6 +334,12 @@ div.anonymous-list * {
         }
         .jump-input {
             background-color: $background-color-lighter !important;
+        }
+        .x-tab-strip-active {
+            border-bottom-color: $primary-color !important;
+        }
+        .syno-ux-textfield {
+            color: $text-color !important;
         }
     }
 }
@@ -348,6 +356,10 @@ div.anonymous-list * {
 
         .name {
             color: $text-color !important;
+        }
+
+        .x-box-item {
+            background-color: $background-color !important;
         }
     }
 }
