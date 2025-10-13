@@ -1,8 +1,8 @@
 export interface Color {
-  r: number
-  g: number
-  b: number
-  a: number
+  r: number;
+  g: number;
+  b: number;
+  a: number;
 }
 
 export function getDefaultColor(customFields?: Partial<Color>): Color {
@@ -10,49 +10,59 @@ export function getDefaultColor(customFields?: Partial<Color>): Color {
     r: customFields?.r || 0,
     g: customFields?.g || 0,
     b: customFields?.b || 0,
-    a: customFields?.a || 1
-  }
+    a: customFields?.a || 1,
+  };
 }
 
 function padZero(str: string): string {
-  return str.length === 1 ? '0' + str : str
+  return str.length === 1 ? "0" + str : str;
 }
 
 function hexToColor(hexStr: string): Color {
-  if (hexStr.startsWith('#')) {
-    hexStr = hexStr.slice(1)
+  if (hexStr.startsWith("#")) {
+    hexStr = hexStr.slice(1);
   }
   if (hexStr.length === 3) {
-    hexStr = hexStr.split('').map(x => x + x).join('')
+    hexStr = hexStr
+      .split("")
+      .map((x) => x + x)
+      .join("");
   }
   return getDefaultColor({
     r: parseInt(hexStr.slice(0, 2), 16),
     g: parseInt(hexStr.slice(2, 4), 16),
-    b: parseInt(hexStr.slice(4, 6), 16)
-  })
+    b: parseInt(hexStr.slice(4, 6), 16),
+  });
 }
 
 function rgbToColor(rgbStr: string): Color {
-  const match = rgbStr.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i)
+  const match = rgbStr.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
   return match
-    ? getDefaultColor({ r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) })
-    : getDefaultColor()
+    ? getDefaultColor({
+        r: parseInt(match[1]),
+        g: parseInt(match[2]),
+        b: parseInt(match[3]),
+      })
+    : getDefaultColor();
 }
 
 export function toColor(colorStr: string): Color {
-  if (colorStr.startsWith('#')) {
-    return hexToColor(colorStr)
+  if (colorStr.startsWith("#")) {
+    return hexToColor(colorStr);
   } else {
-    return rgbToColor(colorStr)
+    return rgbToColor(colorStr);
   }
 }
 
 export function colorToHex(color: Color): string {
-  return '#' + [color.r, color.g, color.b].map(x => padZero(x.toString(16))).join('')
+  return (
+    "#" +
+    [color.r, color.g, color.b].map((x) => padZero(x.toString(16))).join("")
+  );
 }
 
 export function colorToRgba(color: Color): string {
-  return `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
+  return `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
 }
 
 export function adjustBrightness(color: Color, brightness: number): Color {
@@ -60,11 +70,18 @@ export function adjustBrightness(color: Color, brightness: number): Color {
     r: Math.max(0, Math.min(255, Math.floor(color.r + brightness))),
     g: Math.max(0, Math.min(255, Math.floor(color.g + brightness))),
     b: Math.max(0, Math.min(255, Math.floor(color.b + brightness))),
-  })
+  });
 }
 
-export function areColorsSimilar(color1: Color, color2: Color, threshold: number): boolean {
-  const distance = Math.sqrt(Math.pow(color1.r - color2.r, 2) + Math.pow(color1.g - color2.g, 2) + Math.pow(color1.b - color2.b, 2))
-  return distance <= threshold
+export function areColorsSimilar(
+  color1: Color,
+  color2: Color,
+  threshold: number,
+): boolean {
+  const distance = Math.sqrt(
+    Math.pow(color1.r - color2.r, 2) +
+      Math.pow(color1.g - color2.g, 2) +
+      Math.pow(color1.b - color2.b, 2),
+  );
+  return distance <= threshold;
 }
-
