@@ -1,7 +1,7 @@
 // Global element getter
 
 // chat area
-export let chatMainMsgInputBox = () => document.querySelector(".chat-center-content-panel .chat-input-aria-main-v2 .msg-inputarea-textarea-wrap .msg-inputarea-textarea") as HTMLDivElement;
+export let chatMainMsgInputBox = () => document.querySelector(".tiptap.ProseMirror[contenteditable='true']") as HTMLDivElement;
 
 // gadgets
 export let chatRoomSearch = () => document.querySelector('.jump-to-button>button') as HTMLButtonElement;

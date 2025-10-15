@@ -4,7 +4,7 @@ import "./styles/content_scripts.scss";
 // --------------- [ TS Module ] ----------------
 // TODO: migrate these to chat-plus
 // import "./scripts/image_button"
-// import "./scripts/keyboard_shortcut"
+import "./scripts/keyboard_shortcut"
 // import "./scripts/mark_as_unread"
 
 import {
