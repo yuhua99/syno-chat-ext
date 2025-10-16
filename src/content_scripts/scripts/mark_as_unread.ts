@@ -32,11 +32,12 @@ function createMarkUnreadItemForMenu() {
 function insertMarkUnreadOnMenu() {
     const menus = document.querySelectorAll('.v-menu .v-trap-focus-body');
     menus.forEach(menuBody => {
-        const markUnreadItem = createMarkUnreadItemForMenu();
-        menuBody.insertBefore(markUnreadItem, menuBody.firstChild);
+        if (!menuBody.querySelector('.v-menu-item span.title')?.textContent?.includes('Mark as Unread')) {
+            const markUnreadItem = createMarkUnreadItemForMenu();
+            menuBody.insertBefore(markUnreadItem, menuBody.firstChild);
+        }
     });
 }
-
 
 function markChannelUnread(channelItem: HTMLElement, unreadNumber: number = 1) {
     if (!channelItem) return;
@@ -45,6 +46,7 @@ function markChannelUnread(channelItem: HTMLElement, unreadNumber: number = 1) {
     if (!hideAction) return;
     // If hideAction is not empty, it may already be marked as unread or already contain unread messages.
     if (hideAction.children.length !== 0) return;
+    if (hideAction.querySelector('.unread-indicator')) return;
 
     if (unreadNumber > 0) {
         const unreadDiv = document.createElement('div');
@@ -59,16 +61,17 @@ function markChannelUnread(channelItem: HTMLElement, unreadNumber: number = 1) {
     }
 };
 
-function clearChannelUnread(channelItem: HTMLElement) {
+async function clearChannelUnread(channelItem: HTMLElement) {
     if (!channelItem) return;
+
     ChannelList = ChannelList.filter(id => id !== channelItem.id);
-    setStorage(UNREAD_CHANNEL_LIST, ChannelList);
+    await setStorage(UNREAD_CHANNEL_LIST, ChannelList);
 
     const hideAction = channelItem.querySelector('.hide-on-hover-action');
     if (!hideAction) return;
     const unreadDiv = hideAction.querySelector('.unread-indicator');
     if (unreadDiv) {
-        hideAction.removeChild(unreadDiv);
+        unreadDiv.remove();
     }
 }
 
@@ -82,7 +85,7 @@ const observer_channel = new MutationObserver(async function(mutationsList, obse
                 markChannelUnread(channel as HTMLElement);
             }
             if (!channel.dataset.clickBound) {
-                channel.dataset.clickBound = 'true'; // 避免重複綁定
+                channel.dataset.clickBound = 'true'; // Avoid rebinding
                 channel.addEventListener('click', () => {
                     clearChannelUnread(channel as HTMLElement);
                 });
@@ -98,7 +101,6 @@ const observer_channel = new MutationObserver(async function(mutationsList, obse
                 });
             }
         });
-        observerInstance.disconnect();
     }
 });
 
